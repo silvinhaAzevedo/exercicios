@@ -20,11 +20,16 @@ public class ValidadorCampoTexto implements ValidadorCampo{
 	
 
 	public boolean validarCampo(String input) throws ValidadorCampoException {
-	
+		if (input.length() > this.max)
+			throw new ValidadorCampoException("Quantidade de caracteres acima do permitido para o campo: (Nome) " +
+					"O limite máximo é de 30 caracteres tente novamente. \n");
+				
+		else 
+			
 		for (int i = 0; i < input.length(); i++)
 		    if (Character.isDigit(input.charAt(i)))
 		       throw new ValidadorCampoException("O nome informado não é válido! Verifique se vc digitou " +
-		                                         "algum número e tente novamente.");    
+		                                         "algum número e tente novamente.\n");    
 		
 		return true;
 		

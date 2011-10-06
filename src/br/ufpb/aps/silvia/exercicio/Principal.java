@@ -8,8 +8,6 @@ public class Principal {
 
 	public static void main (String args[]) throws Exception{
 
-	
-	
 		int opcao = 0;
 		
 		Scanner menu = new Scanner(System.in); 
@@ -17,7 +15,7 @@ public class Principal {
 		
 		
         int  op = 1;
-        while (opcao != 3){
+        while (op != 3){
         	System.out.println("------Cadastrar Usuário-------\n");
         	System.out.print("[1] Cadastrar\n");
             System.out.print("[2] Listar itens cadastrados\n");

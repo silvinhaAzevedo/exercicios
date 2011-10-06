@@ -13,16 +13,17 @@ public class ValidadorCampoIdade implements ValidadorCampo{
 	}
 
 	public boolean validarCampo(String txt) throws ValidadorCampoException {
-		int txt2  = Integer.parseInt(txt);
+		
 		
 		try{
+			int txt2  = Integer.parseInt(txt);
 			if(txt2>150){
 				throw new ValidadorCampoException("Erro! Verifique se vc não ultrapassou a idade permitida que é 150 tente novamente.");
 			}
 				
 			
 		} catch(NumberFormatException ex){
-			throw new ValidadorCampoException("Idade inválida! Tem que ser maior que 0 e menor que 150");
+			throw new ValidadorCampoException("Idade inválida!");
 		}
 		return true;
 	}

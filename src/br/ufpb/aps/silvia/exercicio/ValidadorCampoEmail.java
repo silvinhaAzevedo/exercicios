@@ -15,14 +15,14 @@ public class ValidadorCampoEmail implements ValidadorCampo{
 	        //verifica o tamanho do email 
 	        if (nome.length() > 20)
 	            throw new ValidadorCampoException("Quantidade de caracteres acima do permitido para o campo: (Email).\n" +
-	                                              "O limite máximo é de 20 caracteres.");
+	                                              "O limite máximo é de 20 caracteres tente novamente. \n");
 	        
 	        for (int i = 0; i < nome.length(); i++) // verifica cada indice do nome digitado se apresenta o @ e se tiver lança uma exceção. ex: si@lvia
-	            if (nome.charAt(i) == '@' && i != 0 && i != (nome.length()-1))
+	            if (nome.charAt(i) == '@')
 	                return true;
 	        
 	        throw new ValidadorCampoException("O email informado não é válido! Verifique se vc não esqueçeu\n" +
-	                                          "de colocar o operador '@' e tente novamente.");
+	                                          "de colocar o operador '@' e tente novamente.\n");
 	    }
 
 		
