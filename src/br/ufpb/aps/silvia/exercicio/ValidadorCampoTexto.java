@@ -19,32 +19,40 @@ public class ValidadorCampoTexto implements ValidadorCampo{
 	}
 	
 
-	public void validarCampo(String valor) throws ValorInvalidoException,nomeInvalidoException {
+	public boolean validarCampo(String input) throws ValidadorCampoException {
 	
-		if (txt.length() > max)
-			throw new ValorInvalidoException("o tamanho maximo do nome é" +max); 
-		else
+		for (int i = 0; i < input.length(); i++)
+		    if (Character.isDigit(input.charAt(i)))
+		       throw new ValidadorCampoException("O nome informado não é válido! Verifique se vc digitou " +
+		                                         "algum número e tente novamente.");    
+		
+		return true;
+		
+		
+		
+		
+		
+//		if (input.length() > max)
+//			throw new ValidadorCampoException ("Quantidade de caracteres acima do permitido para o campo: (Nome). \n" + 
+//		"o limite maximo é de 30 caracteres.");
+//			 
+//		else {
+//			Pattern p = Pattern.compile("[a-z]*");
+//			Matcher m = p.matcher(input);
+//			
+//			boolean matchFound = m.matches();
+//			 if (matchFound == true)
+//				 System.out.println("ok!");
+//			 else
+//				 throw new ValidadorCampoException("nome inválido");
+//		}
+		
 			
 		
-		 txt = "silvia";  
-		
-		 
-		if (txt.matches("^[a-zA-ZÁÂÃÀÇÉÊÍÓÔÕÚÜáâãàçéêíóôõúü]*$"))  //valida se o texto tem apenas letras
-	   System.out.println("Só tem letras.");  
-
-	else 
-		
-		if (txt.matches("^[0-9]*$")) //verifica se no texto tem digitos ou apenas letras
-			throw new nomeInvalidoException("nome inválido contém numeros");
-		
-		
-		
-		 
 	
-			
-	}
 	
 	}
+}
 	
 	
 

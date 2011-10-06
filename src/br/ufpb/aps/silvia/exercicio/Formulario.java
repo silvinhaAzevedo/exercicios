@@ -24,4 +24,14 @@ public class Formulario {
 		return descricao;
 
 }
+
+	public int getQtdeCampos(int Qtdecampos) {
+		return campos.size();
+	}
+
+	public void listarCampos() {
+		for (Campo c: campos) {
+			System.out.println(c.toString());
+		}
+}
 }

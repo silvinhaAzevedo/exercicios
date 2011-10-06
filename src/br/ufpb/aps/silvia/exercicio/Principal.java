@@ -8,49 +8,63 @@ public class Principal {
 
 	public static void main (String args[]) throws Exception{
 
-		Usuario u = new Usuario();
-		
-		u.cadastrarUsuario();
 	
-		int opcao = -1;
-        while (opcao != 0){
-            System.out.println("---- Sistema de cadastro ----\n");
-            System.out.print("[1] Cadastrar\n");
+	
+		int opcao = 0;
+		
+		Scanner menu = new Scanner(System.in); 
+		Fachada fachada = new Fachada();
+		
+		
+        int  op = 1;
+        while (opcao != 3){
+        	System.out.println("------Cadastrar Usuário-------\n");
+        	System.out.print("[1] Cadastrar\n");
             System.out.print("[2] Listar itens cadastrados\n");
-            System.out.print("[0] Sair\n");
-            Scanner menu = new Scanner(System.in);
-            opcao = menu.nextInt();
-          
+            System.out.print("[3] Sair\n");
+            
+            op = Integer.parseInt(menu.nextLine());
         
-            switch (opcao) {
-                case 1:
-                    u.cadastrarUsuario();
-
-                    //Verificar se irá cadastrar ou finalizar
-                    Scanner opcaoCadastro = new Scanner(System.in);
-                    System.out.println("[C]ontinua ou [F]inaliza?");
-                    int cadastro = opcaoCadastro.nextInt();
-
-                    switch (cadastro) {
-                       case 'c':
-                           Usuario u1 = new Usuario();
-                           u1.cadastrarUsuario();
-                            break;
-                        case 'f':
-                            System.out.println("Até logo!");
-                            System.exit(0);
-                    }
-
-                    break;
-
-                case 2:
-                    System.out.println("Listar usuarios Cadastrsdos");
-                    break;
-
-
-            }
-            }
-   	
+        	switch (op){
+        	
+        	case 1:
+        		try{
+        			Campo c = new Campo();
+        				System.out.println("digite seu nome:\n");
+        				String nome = menu.nextLine();
+        				c.setNome(nome);
+        				System.out.println("digite seu email:\n");
+        				String email = menu.nextLine();
+        				c.setEmail(email);
+        				System.out.println("digite sua idade:\n");
+        				String idade = menu.nextLine();
+        				c.setIdade(idade);
+        				
+        				fachada.inserirNovoCampo(c);
+        				}
+        			catch (Exception ex) {
+						
+        				System.out.println("Erro: " + ex.getMessage());
+        			}
+        			
+        			break;
+        			
+        	 case 2:
+        		 
+        	fachada.listarCampos(); break;
+        	
+        	 case 3:
+ 				System.out.println("finalizado!\n");
+                 
+                 
+           
+        	}
+        		}
 	}
-
 }
+           
+
+        
+        
+
+
