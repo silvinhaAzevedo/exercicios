@@ -40,14 +40,13 @@ class Campo {
 	}
 
 	public void setIdade(String idade) throws Exception {
-		vc = new ValidadorCampoIdade(idade);
+		vc = new ValidadorCampoIdade();
 		if (vc.validarCampo(idade))
 			this.idade = idade;
 	}
 
 	public String toString() {
-		return "Nome:" +  this.nome  + "\n" + "Email:" +  this.email +  "\n"
-				+ "Idade:" + this.idade;
+		return "Nome:" +  this.nome + "\n" + "Email:" + this.email + "\n" +  "Idade:" + this.idade;
 	}
 
 	public boolean validar(String msg) throws Exception {
