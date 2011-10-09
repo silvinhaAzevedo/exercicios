@@ -26,26 +26,36 @@ public class Principal {
         	switch (op){
         	
         	case 1:
-        		try{
-        			Campo c = new Campo();
-        				System.out.println("digite seu nome:\n");
-        				String nome = menu.nextLine();
-        				c.setNome(nome);
-        				System.out.println("digite seu email:\n");
-        				String email = menu.nextLine();
-        				c.setEmail(email);
-        				System.out.println("digite sua idade:\n");
-        				String idade = menu.nextLine();
-        				c.setIdade(idade);
-        				
-        				fachada.inserirNovoCampo(c);
-        				}
-        			catch (Exception ex) {
-						
-        				System.out.println("Erro: " + ex.getMessage());
-        			}
-        			
-        			break;
+        		
+        		String continuar = "C"; 
+
+				while (continuar.equals("C")) { 
+					try {
+						CampoDecorator c = new CampoDecorator();
+						System.out.println("digite seu nome:\n");
+						String nome = menu.nextLine();
+						c.setNome(nome);
+						System.out.println("digite seu email:\n");
+						String email = menu.nextLine();
+						c.setEmail(email);
+						System.out.println("digite sua idade:\n");
+						String idade = menu.nextLine();
+						c.setIdade(idade);
+						System.out.println("digite seu login:\n");
+						String login = menu.nextLine();
+						c.setLogin(login);
+						System.out.println("digite sua senha:\n");
+						String senha = menu.nextLine();
+						c.setSenha(senha);
+
+						fachada.inserirNovoCampo(c);
+					} catch (Exception ex) {
+
+						System.out.println("Erro: " + ex.getMessage());
+					}
+					System.out.println("[C]ontinuar - [F]inalizar");  
+					continuar = menu.nextLine();  
+				}break;
         			
         	 case 2:
         		 

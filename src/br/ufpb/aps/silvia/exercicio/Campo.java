@@ -1,15 +1,17 @@
 package br.ufpb.aps.silvia.exercicio;
 
 //teste
-class Campo {
+class CampoDecorator {
 	private String nome;
 	private String email;
 	private String idade;
 	private ValidadorCampo vc;
 	private String erro;
 	private String msg;
+	private String login;
+	private String senha;
 
-	public Campo() {
+	public CampoDecorator() {
 		
 
 	}
@@ -29,7 +31,7 @@ class Campo {
 	}
 
 	public void setEmail(String email) throws Exception {
-		vc = new ValidadorCampoEmail();
+		vc = new ValidadorCampoEmailDecorator(null);
 		if (vc.validarCampo(email))
 			this.email = email;
 
@@ -38,11 +40,31 @@ class Campo {
 	public String getIdade() {
 		return idade;
 	}
-
+	
 	public void setIdade(String idade) throws Exception {
-		vc = new ValidadorCampoIdade();
+		vc = new ValidadorCampoIdade(0, 0);
 		if (vc.validarCampo(idade))
 			this.idade = idade;
+	}
+	
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) throws Exception{
+		vc = new ValidadorCampoTexto(login);
+		if (vc.validarCampo(login))
+			this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) throws Exception {
+		vc = new ValidadorCampoTexto(senha);
+		if (vc.validarCampo(senha))
+			this.senha = senha;
 	}
 
 	public String toString() {
@@ -57,6 +79,11 @@ class Campo {
 			this.erro = e.getMessage();
 			return false;
 		}
+		
+		
+
+		
+			
 	}
 
 }

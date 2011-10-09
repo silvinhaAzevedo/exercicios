@@ -34,7 +34,9 @@ public class ValidadorCampoTexto implements ValidadorCampo{
 		return true;
 		
 		
-		
+
+}
+}
 		
 		
 //		if (input.length() > max)
@@ -56,9 +58,7 @@ public class ValidadorCampoTexto implements ValidadorCampo{
 		
 	
 	
-	}
-}
-	
+		
 	
 
 

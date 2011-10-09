@@ -3,27 +3,34 @@ package br.ufpb.aps.silvia.exercicio;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ValidadorCampoIdade implements ValidadorCampo{
-
+public  class ValidadorCampoIdade implements ValidadorCampo{
+	private int tamanhoMax;
+	private int tamanhoMin;
 	
 	
 
-	public ValidadorCampoIdade() {
-		
+
+	public ValidadorCampoIdade(int tmax, int tmin ){
+		this.tamanhoMax = 150;
+		this.tamanhoMin = 0;
 	}
+		
+
 
 	public boolean validarCampo(String txt) throws ValidadorCampoException {
 		
 		
 		try{
 			int txt2  = Integer.parseInt(txt);
-			if(txt2>150){
-				throw new ValidadorCampoException("Erro! Verifique se vc não ultrapassou a idade permitida que é 150 tente novamente.");
-			}
+			if(txt2>=150){
+				throw new ValidadorCampoException("Erro!  voce não ultrapassou a idade permitida que é 150 tente novamente.");
+			} else
+				if (txt2 <= 0){
+					throw new ValidadorCampoException ("> ERRO: Valor inválido");
+				}
 				
-			
-		} catch(NumberFormatException ex){
-			throw new ValidadorCampoException("Idade inválida!");
+				} catch(NumberFormatException ex){
+			throw new ValidadorCampoException(" Idade deve conter apenas números!");
 		}
 		return true;
 	}

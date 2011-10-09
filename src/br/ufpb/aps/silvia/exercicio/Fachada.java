@@ -3,15 +3,15 @@ package br.ufpb.aps.silvia.exercicio;
 public class Fachada {
 	
 		Formulario form;
-		Campo campo;
+		CampoDecorator campo;
 		
 		public Fachada(){
 			 form = new Formulario("cadastro do usuário");
-			 campo = new Campo( );
+			 campo = new CampoDecorator( );
 			
 
 }
-		public void inserirNovoCampo(Campo c){
+		public void inserirNovoCampo(CampoDecorator c){
 			form.addCampo(c);
 			
 		}
@@ -21,7 +21,7 @@ public class Fachada {
 		}
 		
 		public void listarCampos(){
-			form.listarCampos();
+			form.listarCamposDecorator();
 }
 }
 		

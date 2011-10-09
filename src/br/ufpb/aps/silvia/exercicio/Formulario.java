@@ -1,20 +1,21 @@
 package br.ufpb.aps.silvia.exercicio;
 
 import java.util.ArrayList;
+
 import java.util.LinkedList;
 
 
 public class Formulario {
-	private LinkedList<Campo>campos;
+	private LinkedList<CampoDecorator>campos;
 	private String descricao;
 	
 	
 	public Formulario(String descricao){
 		this.descricao = descricao;
-		this.campos = new LinkedList<Campo>();
+		this.campos = new LinkedList<CampoDecorator>();
 	}
 	
-	public void addCampo(Campo c) {
+	public void addCampo(CampoDecorator c) {
 		this.campos.add(c);
 		
 	}
@@ -29,8 +30,8 @@ public class Formulario {
 		return campos.size();
 	}
 
-	public void listarCampos() {
-		for (Campo c: campos) {
+	public void listarCamposDecorator() {
+		for (CampoDecorator c: campos) {
 			System.out.println(c.toString());
 		}
 }
